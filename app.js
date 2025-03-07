@@ -317,6 +317,29 @@ createApp({
         .join(", ");
     }
     
+    // Add the missing sharePuzzle function
+    function sharePuzzle() {
+      const today = new Date();
+      const dateString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+      
+      const text = `I solved today's False Friends puzzle (${dateString})! 🧩\nCurrent streak: ${streakData.value.currentStreak}\nPlay at: [your website URL]`;
+      
+      // Try to use the clipboard API if available
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text)
+          .then(() => {
+            alert('Result copied to clipboard!');
+          })
+          .catch(() => {
+            // Fallback for clipboard failure
+            alert('Share text: ' + text);
+          });
+      } else {
+        // Fallback for browsers without clipboard support
+        alert('Share text: ' + text);
+      }
+    }
+    
     // Initialize the game when component mounts
     initGame();
     
@@ -334,7 +357,8 @@ createApp({
       deselectClue,
       checkAnswer,
       resetGame,
-      getRowThemeClues
+      getRowThemeClues,
+      sharePuzzle
     };
   }
 }).mount('#app');
