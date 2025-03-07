@@ -28,161 +28,84 @@ const gameBoards = [
   },
   {
     id: 2,
-    rows: [
-      {
-        theme: "Mammals",
-        clues: ["Lion", "Elephant", "Tiger", "Eagle"],
-        falseFriend: "Eagle"
-      },
-      {
-        theme: "Planets",
-        clues: ["Mercury", "Venus", "Earth", "Moon"],
-        falseFriend: "Moon"
-      },
-      {
-        theme: "Currencies",
-        clues: ["Euro", "Pound", "Yen", "Amber"],
-        falseFriend: "Amber"
-      },
-      {
-        theme: "Vegetables",
-        clues: ["Carrot", "Broccoli", "Radish", "Seal"],
-        falseFriend: "Seal"
-      }
-    ],
-    falseFriendTheme: "American _____"
+  rows: [
+    {
+      theme: "Famous Paintings",
+      clues: ["Nighthawks", "Mona Lisa", "Starry Night", "Scream"],
+      falseFriend: "Scream"
+    },
+    {
+      theme: "1 word for \"Leave!\"",
+      clues: ["Shoo", "Vamoose", "Scram", "Get Out"],
+      falseFriend: "Get Out"
+    },
+    {
+      theme: "Pronouns for People",
+      clues: ["He", "She", "They", "It"],
+      falseFriend: "It"
+    },
+    {
+      theme: "Things we've found in space",
+      clues: ["Meteor", "blackhole", "Satellite", "Alien"],
+      falseFriend: "Alien"
+    }
+  ],
+  falseFriendTheme: "Horror Movies"
   },
   {
     id: 3,
-    rows: [
-      {
-        theme: "Citrus Fruits",
-        clues: ["Lemon", "Lime", "Grapefruit", "Apple"],
-        falseFriend: "Apple"
-      },
-      {
-        theme: "Planets with Rings",
-        clues: ["Saturn", "Jupiter", "Uranus", "Mars"],
-        falseFriend: "Mars"
-      },
-      {
-        theme: "Rodents",
-        clues: ["Mouse", "Hamster", "Squirrel", "Pie"],
-        falseFriend: "Pie"
-      },
-      {
-        theme: "Web Browsers",
-        clues: ["Chrome", "Firefox", "Safari", "Bottom"],
-        falseFriend: "Bottom"
-      }
-    ],
-    falseFriendTheme: "_____ of a chart"
-  },
+ rows: [
+    {
+      theme: "Leaky Kitchen Gear",
+      clues: ["Funnel", "Colander", "Grater", "Bowls"],
+      falseFriend: "Bowls"
+    },
+    {
+      theme: "3D Arts",
+      clues: ["Ceramics", "Topiary", "Origami", "Painting"],
+      falseFriend: "Painting"
+    },
+    {
+      theme: "Regal Resting Places",
+      clues: ["Canopy Bed", "Liter", "Throne", "Statue"],
+      falseFriend: "Statue"
+    },
+    {
+      theme: "Inorganic Earthen Spoils",
+      clues: ["Minerals", "Rocks", "Gems", "Fossils"],
+      falseFriend: "Fossils"
+    }
+  ],
+  falseFriendTheme: "Museum Finds"
+},
   {
     id: 4,
-    rows: [
-      {
-        theme: "Stringed Instruments",
-        clues: ["Violin", "Guitar", "Cello", "Cross"],
-        falseFriend: "Cross"
-      },
-      {
-        theme: "Berries",
-        clues: ["Strawberry", "Blueberry", "Raspberry", "Bold"],
-        falseFriend: "Bold"
-      },
-      {
-        theme: "Ancient Civilizations",
-        clues: ["Egyptian", "Mayan", "Roman", "Beautiful"],
-        falseFriend: "Beautiful"
-      },
-      {
-        theme: "Mountains",
-        clues: ["Everest", "Kilimanjaro", "Denali", "Brave"],
-        falseFriend: "Brave"
-      }
-    ],
-    falseFriendTheme: "_____ and the _____ (Disney movie)"
-  },
-  {
-    id: 5,
-    rows: [
-      {
-        theme: "Spices",
-        clues: ["Cinnamon", "Turmeric", "Cardamom", "Paint"],
-        falseFriend: "Paint"
-      },
-      {
-        theme: "Dogs",
-        clues: ["Labrador", "Poodle", "Beagle", "Fresh"],
-        falseFriend: "Fresh"
-      },
-      {
-        theme: "Vegetables",
-        clues: ["Carrot", "Celery", "Spinach", "Wash"],
-        falseFriend: "Wash"
-      },
-      {
-        theme: "Software Companies",
-        clues: ["Microsoft", "Adobe", "Oracle", "Dry"],
-        falseFriend: "Dry"
-      }
-    ],
-    falseFriendTheme: "Laundry _____"
-  },
-  {
-    id: 6,
-    rows: [
-      {
-        theme: "Rivers",
-        clues: ["Amazon", "Nile", "Mississippi", "Pencil"],
-        falseFriend: "Pencil"
-      },
-      {
-        theme: "Metals",
-        clues: ["Gold", "Silver", "Copper", "Case"],
-        falseFriend: "Case"
-      },
-      {
-        theme: "Flowers",
-        clues: ["Rose", "Tulip", "Daisy", "Pillow"],
-        falseFriend: "Pillow"
-      },
-      {
-        theme: "Social Media",
-        clues: ["Twitter", "Instagram", "Facebook", "Book"],
-        falseFriend: "Book"
-      }
-    ],
-    falseFriendTheme: "School supplies"
-  },
-  {
-    id: 7,
-    rows: [
-      {
-        theme: "Liquids",
-        clues: ["Water", "Oil", "Vinegar", "Day"],
-        falseFriend: "Day"
-      },
-      {
-        theme: "Desserts",
-        clues: ["Cake", "Pie", "Ice Cream", "Light"],
-        falseFriend: "Light"
-      },
-      {
-        theme: "Ball Sports",
-        clues: ["Soccer", "Basketball", "Tennis", "Break"],
-        falseFriend: "Break"
-      },
-      {
-        theme: "Trees",
-        clues: ["Oak", "Pine", "Maple", "Time"],
-        falseFriend: "Time"
-      }
-    ],
-    falseFriendTheme: "Parts of the day"
-  }
-  // Add more game boards as needed
-];
+Let me convert this text string into the structured JSON format:
+jsonCopy{
+  id: 5,
+  rows: [
+    {
+      theme: "Sleep",
+      clues: ["Snooze", "Nap", "Slumber", "Alarm"],
+      falseFriend: "Alarm"
+    },
+    {
+      theme: "More than sufficient",
+      clues: ["Copious", "Abundant", "Ample", "Positive"],
+      falseFriend: "Positive"
+    },
+    {
+      theme: "Man Made Tools",
+      clues: ["Hammers", "Levers", "Doors", "Teeth"],
+      falseFriend: "Teeth"
+    },
+    {
+      theme: "Bright and Showy",
+      clues: ["Flamboyent", "Flashy", "Flare", "Flag"],
+      falseFriend: "Flag"
+    }
+  ],
+  falseFriendTheme: "False ____"
+}];
 
 window.gameBoards = gameBoards;
