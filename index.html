@@ -1,41 +1,129 @@
-<script>
-    // Simple share function
-    function sharePuzzle() {
-      // Get app instance
-      const app = document.querySelector('#app').__vue_app__;
-      // Access the data from the app instance
-      const streakData = app._instance.exposed.streakData;
-      const currentStreak = streakData ? streakData.currentStreak : 0;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>False Friends Word Puzzle</title>
+  <!-- Link to your CSS file -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Import Vue.js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div class="game-container">
+      <h1>False Friends</h1>
       
-      let text = `I solved today's False Friends puzzle!`;
-      if (currentStreak > 1) {
-        text += ` ${currentStreak} day streak! 🔥`;
-      }
-      text += ` Can you figure out the connections? Play at [your-website-url]`;
+      <div class="daily-info">
+        New puzzle every day! Next puzzle in <span class="reset-time">{{ nextResetTime }}</span>
+        
+        <div class="streak-container">
+          <div class="streak-box">
+            <div class="streak-number">{{ streakData.currentStreak }}</div>
+            <div class="streak-label">Current Streak</div>
+          </div>
+          <div class="streak-box">
+            <div class="streak-number">{{ streakData.maxStreak }}</div>
+            <div class="streak-label">Max Streak</div>
+          </div>
+        </div>
+      </div>
       
-      if (navigator.share) {
-        navigator.share({
-          title: 'Daily False Friends',
-          text: text
-        })
-        .catch(error => {
-          console.log('Error sharing:', error);
-          fallbackShare(text);
-        });
-      } else {
-        fallbackShare(text);
-      }
-    }
-    
-    function fallbackShare(text) {
-      // Create a temporary input
-      const input = document.createElement('textarea');
-      input.value = text;
-      document.body.appendChild(input);
-      input.select();
-      document.execCommand('copy');
-      document.body.removeChild(input);
+      <div class="instructions" v-if="gameState === 'playing'">
+        Select the false friend from each row - the odd one out that doesn't fit with the others. The four false friends will share their own hidden connection!
+      </div>
       
-      alert('Result copied to clipboard!');
-    }
-  </script>
+      <!-- Game board rows -->
+      <template v-if="currentBoard">
+        <div 
+          v-for="(row, rowIndex) in currentBoard.rows" 
+          :key="rowIndex" 
+          class="row"
+        >
+          <div class="row-header">Row {{ rowIndex + 1 }}</div>
+          <div class="clues">
+            <div
+              v-for="(clue, clueIndex) in row.clues"
+              :key="clueIndex"
+              class="clue-tile"
+              :class="{
+                'selected': isClueSelected(clue),
+                'returning': recentlyReturnedClues.includes(clue)
+              }"
+              @click="selectClue(clue, rowIndex)"
+            >
+              {{ clue }}
+            </div>
+          </div>
+        </div>
+      </template>
+      
+      <!-- Selection tray -->
+      <div class="selection-tray">
+        <template v-if="selectedClues.length > 0">
+          <div
+            v-for="(clue, index) in selectedClues"
+            :key="index"
+            class="selected-clue"
+            :class="'row-' + selectedCluesRowIndices[index]"
+            @click="deselectClue(index)"
+          >
+            {{ clue }}
+          </div>
+        </template>
+        <div v-else class="selection-placeholder">
+          Select one clue from each row
+        </div>
+      </div>
+      
+      <!-- Submit button -->
+      <button
+        class="submit-btn"
+        @click="checkAnswer"
+        :disabled="selectedClues.length !== 4 || isProcessing || gameState === 'success'"
+      >
+        Submit
+      </button>
+      
+      <!-- Result message -->
+      <div 
+        v-if="gameState === 'success'" 
+        class="result success"
+      >
+        Congratulations! You found all the false friends and discovered the connection!
+        <div v-if="streakData.currentStreak > 1" class="streak-message">
+          🔥 {{ streakData.currentStreak }} day streak! Come back tomorrow to continue your streak!
+        </div>
+      </div>
+      
+      <div 
+        v-if="gameState === 'failure'" 
+        class="result failure"
+      >
+        Not quite right. Try again!
+      </div>
+      
+      <!-- Theme reveals on success -->
+      <div v-if="gameState === 'success'" class="revealed-themes">
+        <div v-for="(row, index) in currentBoard.rows" :key="index" class="theme-reveal">
+          <div class="theme-name">{{ row.theme }}:</div>
+          <div class="theme-clues">{{ getRowThemeClues(index) }}</div>
+        </div>
+        <div class="theme-reveal">
+          <div class="theme-name">False Friends Theme:</div>
+          <div class="theme-clues">{{ currentBoard.falseFriendTheme }}</div>
+        </div>
+      </div>
+      
+      <!-- Share section -->
+      <div v-if="gameState === 'success'" class="share-section">
+        <button class="share-btn" onclick="sharePuzzle()">Share Result</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load game data and script -->
+  <script src="gameboards.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
