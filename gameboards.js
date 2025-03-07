@@ -184,3 +184,5 @@ const gameBoards = [
   }
   // Add more game boards as needed
 ];
+
+window.gameBoards = gameBoards;
