@@ -117,7 +117,7 @@
       
       <!-- Share section -->
       <div v-if="gameState === 'success'" class="share-section">
-        <button class="share-btn" onclick="sharePuzzle()">Share Result</button>
+        <button class="share-btn" @click="sharePuzzle">Share Result</button>
       </div>
     </div>
   </div>
