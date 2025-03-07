@@ -80,9 +80,6 @@ const gameBoards = [
 },
   {
     id: 4,
-Let me convert this text string into the structured JSON format:
-jsonCopy{
-  id: 5,
   rows: [
     {
       theme: "Sleep",
