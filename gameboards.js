@@ -27,32 +27,6 @@ const gameBoards = [
     falseFriendTheme: "Grand ____"
   },
   {
-    id: 2,
-    rows: [
-      {
-        theme: "Famous Paintings",
-        clues: ["Nighthawks", "Mona Lisa", "Starry Night", "Scream"],
-        falseFriend: "Scream"
-      },
-      {
-        theme: "1 word for \"Leave!\"",
-        clues: ["Shoo", "Vamoose", "Scram", "Get Out"],
-        falseFriend: "Get Out"
-      },
-      {
-        theme: "Pronouns for People",
-        clues: ["He", "She", "They", "It"],
-        falseFriend: "It"
-      },
-      {
-        theme: "Things we've found in space",
-        clues: ["Meteor", "Blackhole", "Satellite", "Alien"],
-        falseFriend: "Alien"
-      }
-    ],
-    falseFriendTheme: "Horror Movies"
-  },
-  {
     id: 3,
     rows: [
       {
