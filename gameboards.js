@@ -56,32 +56,6 @@ const gameBoards = [
     id: 3,
     rows: [
       {
-        theme: "Leaky Kitchen Gear",
-        clues: ["Funnel", "Colander", "Grater", "Bowls"],
-        falseFriend: "Bowls"
-      },
-      {
-        theme: "3D Arts",
-        clues: ["Ceramics", "Topiary", "Origami", "Painting"],
-        falseFriend: "Painting"
-      },
-      {
-        theme: "Regal Resting Places",
-        clues: ["Canopy Bed", "Liter", "Throne", "Statue"],
-        falseFriend: "Statue"
-      },
-      {
-        theme: "Inorganic Earthen Spoils",
-        clues: ["Minerals", "Rocks", "Gems", "Fossils"],
-        falseFriend: "Fossils"
-      }
-    ],
-    falseFriendTheme: "Museum Finds"
-  },
-  {
-    id: 4,
-    rows: [
-      {
         theme: "Sleep",
         clues: ["Snooze", "Nap", "Slumber", "Alarm"],
         falseFriend: "Alarm"
