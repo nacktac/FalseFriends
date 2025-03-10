@@ -56,27 +56,27 @@ const gameBoards = [
     id: 3,
     rows: [
       {
-        theme: "Sleep",
-        clues: ["Snooze", "Nap", "Slumber", "Alarm"],
-        falseFriend: "Alarm"
+        theme: "Bodies of Water",
+        clues: ["Fjord", "Shoal", "Ocean", "Isthmus"],
+        falseFriend: "Isthmus"
       },
       {
-        theme: "More than sufficient",
-        clues: ["Copious", "Abundant", "Ample", "Positive"],
-        falseFriend: "Positive"
+        theme: "2 Player Games",
+        clues: ["Checkers", "Cribbage", "Gin Rummy", "Bridge"],
+        falseFriend: "Bridge"
       },
       {
-        theme: "Man Made Tools",
-        clues: ["Hammers", "Levers", "Doors", "Teeth"],
-        falseFriend: "Teeth"
+        theme: "-am Names",
+        clues: ["Sam", "Cam", "Pam", "Dam"],
+        falseFriend: "Dam"
       },
       {
-        theme: "Bright and Showy",
-        clues: ["Flamboyant", "Flashy", "Flare", "Flag"],
-        falseFriend: "Flag"
+        theme: "Words with silent letters",
+        clues: ["Gnu", "Gnat", "Gnome", "Gondola"],
+        falseFriend: "Gondola"
       }
     ],
-    falseFriendTheme: "False ____"
+    falseFriendTheme: "Things that Span bodies of water"
   }
 ];
 
